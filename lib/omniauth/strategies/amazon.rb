@@ -54,7 +54,7 @@ module OmniAuth
         #@raw_info ||= access_token.get('/ap/user/profile').parsed
 
         url = "/ap/user/profile"
-        params = {params:{access_token: access_token.token}}
+        params = {:params => { :access_token => access_token.token}}
         @raw_info ||= access_token.client.request(:get, url, params).parsed
       end
     end
