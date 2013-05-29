@@ -37,6 +37,17 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 end
 ```
 
+## Configuration
+
+Config options can be passed to `provider` via a `Hash`:
+
+* `scope`: A space-separated list of permissions. Can be `profile`,
+  `postal_code`, or both. Defaults to both: `profile postal_code`
+
+## Resources
+* [Login with Amazon button guide](https://login.amazon.com/button-guide)
+* [Login with Amazon style guide](https://login.amazon.com/style-guide)
+
 ## Todo
 1. Fix ```raw_info``` to see why ```client.request``` has to be used in query
    mode
