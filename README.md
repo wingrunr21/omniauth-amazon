@@ -19,12 +19,12 @@ Or install it yourself as:
 
 ## Prereqs
 
-You must create an application via the [Amazon App Console](https://login.amazon.com/manageApps). Once that is complete, register two URLs under the <i>Web Settings</i>:
+You must create an application via the [Amazon App Console](https://login.amazon.com/manageApps). Once that is complete, register two URLs under <i>Web Settings -> Allowed Return URLs</i>:
 
-    https://localhost:3000/auth/amazon/callback
+    http://localhost:3000/auth/amazon/callback
     https://your_website_here/auth/amazon/callback
 
-Amazon requires HTTPS for the whitelisted callback URL. They don't appear to
+Amazon requires HTTPS for the whitelisted callback URL (except localhost). They don't appear to
 like ```.dev``` domains too much but happily accept localhost.
 
 ## Usage
