@@ -33,7 +33,10 @@ Usage is similar to other OAuth2 based OmniAuth strategies:
 
 ```ruby
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :amazon, ENV['AMAZON_CLIENT_ID'], ENV['AMAZON_CLIENT_SECRET']
+  provider :amazon, ENV['AMAZON_CLIENT_ID'], ENV['AMAZON_CLIENT_SECRET'],
+    {
+      :scope => 'profile postal_code' # default scope
+    }
 end
 ```
 
@@ -42,7 +45,10 @@ end
 Config options can be passed to `provider` via a `Hash`:
 
 * `scope`: A space-separated list of permissions. Can be `profile`,
-  `postal_code`, or both. Defaults to both: `profile postal_code`
+  `postal_code`, `profile:user_id`, or a combination of options.  
+  Defaults to: `profile postal_code`
+    * Requesting the `profile:user_id` scope will not display an additional consent
+      screen the first time the user logs in.
 
 ## Resources
 * [Login with Amazon button guide](https://login.amazon.com/button-guide)
@@ -62,4 +68,3 @@ Config options can be passed to `provider` via a `Hash`:
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/wingrunr21/omniauth-amazon/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
