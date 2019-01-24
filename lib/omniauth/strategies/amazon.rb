@@ -30,6 +30,21 @@ module OmniAuth
         client.auth_code.get_token(verifier, token_params)
       end
 
+      def query_string
+        super.gsub(/\?state=[^&]*&?/, '')
+      end
+
+      def authorize_params
+        options.authorize_params[:state] = state
+        params = options.authorize_params.merge(options_for("authorize"))
+        if OmniAuth.config.test_mode
+          @env ||= {}
+          @env["rack.session"] ||= {}
+        end
+        session["omniauth.state"] = params[:state]
+        params
+      end
+
       uid { raw_info['Profile']['CustomerId'] }
 
       info do
@@ -56,6 +71,12 @@ module OmniAuth
         url = "/ap/user/profile"
         params = {:params => { :access_token => access_token.token}}
         @raw_info ||= access_token.client.request(:get, url, params).parsed
+      end
+
+      private
+
+      def state
+        request.params["state"] || SecureRandom.hex(24)
       end
     end
   end

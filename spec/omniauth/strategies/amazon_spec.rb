@@ -26,4 +26,10 @@ describe OmniAuth::Strategies::Amazon do
       expect(subject.callback_path).to eq('/auth/amazon/callback')
     end
   end
+
+  describe '#scope' do
+    it 'passes custom state to Amazon site'
+    it 'generates random state value when one is not explicitly provided'
+    it 'strips state from callback_url query params'
+  end
 end
