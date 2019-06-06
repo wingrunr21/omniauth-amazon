@@ -26,4 +26,14 @@ describe OmniAuth::Strategies::Amazon do
       expect(subject.callback_path).to eq('/auth/amazon/callback')
     end
   end
+
+  describe '#callback_url' do
+    it 'does not include query parameters' do
+      allow(subject).to receive(:full_host).and_return('https://example.com')
+      allow(subject).to receive(:script_name).and_return('/sub_uri')
+      allow(subject).to receive(:query_string).and_return('?foo=bar')
+      
+       expect(subject.callback_url).to eq('https://example.com/sub_uri/auth/amazon/callback')
+    end
+  end
 end
