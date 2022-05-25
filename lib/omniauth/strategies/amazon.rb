@@ -7,7 +7,7 @@ module OmniAuth
       option :name, 'amazon'
 
       option :client_options, {
-        :site => 'https://www.amazon.com/',
+        :site => 'https://api.amazon.com/',
         :authorize_url => 'https://www.amazon.com/ap/oa',
         :token_url => 'https://api.amazon.com/auth/o2/token'
       }
@@ -30,18 +30,18 @@ module OmniAuth
         client.auth_code.get_token(verifier, token_params)
       end
 
-      uid { raw_info['Profile']['CustomerId'] }
+      uid { raw_info['user_id'] }
 
       info do
         {
-          'email' => raw_info['Profile']['PrimaryEmail'],
-          'name' => raw_info['Profile']['Name']
+          'email' => raw_info['email'],
+          'name' => raw_info['name']
         }
       end
 
       extra do
         {
-          'postal_code' => raw_info['Profile']['PostalCode']
+          'postal_code' => raw_info['postal_code']
         }
       end
 
@@ -53,7 +53,7 @@ module OmniAuth
         #
         #@raw_info ||= access_token.get('/ap/user/profile').parsed
 
-        url = "/ap/user/profile"
+        url = "/user/profile"
         params = {:params => { :access_token => access_token.token}}
         @raw_info ||= access_token.client.request(:get, url, params).parsed
       end
