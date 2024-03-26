@@ -2,9 +2,7 @@ require 'spec_helper'
 
 describe OmniAuth::Strategies::Amazon do
   subject do
-    strategy = OmniAuth::Strategies::Amazon.new(nil, @options || {})
-    strategy.stub(:session) { {  } }
-    strategy
+    OmniAuth::Strategies::Amazon.new(nil, @options || {})
   end
 
   describe '#client' do

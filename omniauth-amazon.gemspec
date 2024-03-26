@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = OmniAuth::Amazon::VERSION
   spec.authors       = ["Stafford Brunk"]
   spec.email         = ["stafford.brunk@gmail.com"]
-  spec.description   = %q{Login with Amazon OAuth2 strategy for OmniAuth 1.0}
-  spec.summary       = %q{Login with Amazon OAuth2 strategy for OmniAuth 1.0}
+  spec.description   = %q{Login with Amazon OAuth2 strategy for OmniAuth 2.0}
+  spec.summary       = %q{Login with Amazon OAuth2 strategy for OmniAuth 2.0}
   spec.homepage      = "https://github.com/wingrunr21/omniauth-amazon"
   spec.license       = "MIT"
 
@@ -18,12 +18,13 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'omniauth', '~> 1.0'
+  spec.add_dependency 'omniauth', '~> 2.0'
   spec.add_dependency 'omniauth-oauth2', '~> 1.1'
+  spec.add_dependency 'multi_json'
 
-  spec.add_development_dependency "bundler", "~> 1.3"
+  spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake"
-  spec.add_development_dependency 'rspec', '~> 2.13'
+  spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rack-test'
   spec.add_development_dependency 'simplecov'
   spec.add_development_dependency 'webmock'
