@@ -66,5 +66,6 @@ Config options can be passed to `provider` via a `Hash`:
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
+## Credits
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/wingrunr21/omniauth-amazon/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+Originally authored by [wingrunr21](https://github.com/wingrunr21)
