@@ -1,7 +1,7 @@
 # OmniAuth::Amazon
 [![Build Status](https://travis-ci.org/wingrunr21/omniauth-amazon.png)](https://travis-ci.org/wingrunr21/omniauth-amazon) [![Gem Version](https://badge.fury.io/rb/omniauth-amazon.png)](http://badge.fury.io/rb/omniauth-amazon)
 
-[Login with Amazon](https://login.amazon.com/) OAuth2 strategy for OmniAuth 1.0
+[Login with Amazon](https://login.amazon.com/) OAuth2 strategy for OmniAuth 2.0
 
 ## Installation
 
